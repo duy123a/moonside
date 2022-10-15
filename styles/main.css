@@ -1,0 +1,178 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Make footer always at bottom of our screen */
+  font-family: "Rubik", sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #333e52;
+}
+body > main {
+  flex: 1 1 auto;
+}
+
+a {
+  color: #b982ef;
+}
+a:hover {
+  color: #b982ef;
+  opacity: 0.8;
+}
+a:hover > i {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+a > i {
+  transition: all 0.25s;
+}
+
+/* Add underline for all h1 */
+h1.with-underline {
+  position: relative;
+  margin-bottom: 3rem;
+}
+h1.with-underline::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  width: 5rem;
+  height: 0.25rem;
+  margin: 0 auto;
+  border-radius: 0.25rem;
+  background-color: #3d5174;
+}
+
+/* Reset ul style */
+ul {
+  list-style-type: none;
+}
+
+::placeholder {
+  font-style: italic;
+}
+
+.nav .nav__logo {
+  width: auto;
+  height: 40px;
+}
+.nav .nav__link {
+  text-decoration: none;
+}
+.nav .nav__link:hover {
+  text-decoration: underline;
+}
+
+/**************
+  POSTS SECTION
+*/
+.posts-section {
+  padding: 3rem 0;
+}
+.posts-section .post-item {
+  /* Zoom card image when hover on card */
+  overflow: hidden;
+  position: relative;
+}
+.posts-section .post-item .card-img-top {
+  width: auto;
+  height: 200px;
+  transition: all 0.5s;
+}
+.posts-section .post-item .card-body {
+  background-color: #333e52;
+}
+.posts-section .post-item .card-title {
+  color: #b982ef;
+}
+.posts-section .post-item .post-item-menu {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+@media only screen and (min-width: 768px) {
+  .posts-section .post-item .post-item-menu {
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+.posts-section .post-item:hover {
+  /* Add box shadow on card hover */
+  box-shadow: 0 0.5rem 1rem #8d31b0;
+  cursor: pointer;
+}
+.posts-section .post-item:hover .card-img-top {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.posts-section .post-item:hover .post-item-menu {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+.posts-section .post-item-menu {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  transition: all 0.5s;
+  -webkit-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
+  transform-origin: top;
+  opacity: 0;
+}
+.posts-section .post-item-menu .menu-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  background-color: #3d5174;
+  transition: all 0.35s;
+  opacity: 0.7;
+}
+.posts-section .post-item-menu .menu-item:hover {
+  color: white;
+  background-color: black;
+  opacity: 1;
+}
+
+/**************
+  POSTS NAV
+*/
+.top-nav {
+  box-shadow: 0 0.125rem 0.25rem #8d31b0;
+}
+
+/* Use primary color for page link */
+.posts-nav .page-item .page-link {
+  color: #3d5174;
+}
+.posts-nav .page-item.active .page-link {
+  color: white;
+  background-color: #b982ef;
+  border-color: #b982ef;
+}
+.posts-nav .page-item:not(.active) .page-link:hover {
+  color: #b982ef;
+}
+
+/*# sourceMappingURL=main.css.map */

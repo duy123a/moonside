@@ -1,0 +1,72 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Make footer always at bottom of our screen */
+  @include font-default(false, $font-color);
+  @include flex(column);
+  min-height: 100vh;
+  background-color: $background-color;
+
+  & > main {
+    flex: 1 1 auto;
+  }
+}
+
+a {
+  color: $primary-color;
+  &:hover {
+    color: $primary-color;
+    opacity: 0.8;
+    & > i {
+      @include transform(rotate(90deg));
+    }
+  }
+  & > i {
+    transition: all 0.25s;
+  }
+}
+
+/* Add underline for all h1 */
+h1 {
+  &.with-underline {
+    position: relative;
+    margin-bottom: 3rem;
+    &::after {
+      @include pseudo;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      right: 0;
+
+      @include size(5rem, 0.25rem);
+      margin: 0 auto;
+      border-radius: 0.25rem;
+
+      background-color: $secondary-color;
+    }
+  }
+}
+
+/* Reset ul style */
+ul {
+  list-style-type: none;
+}
+
+::placeholder {
+  font-style: italic;
+}
+
+.nav {
+  & &__logo {
+    @include size(auto, 40px);
+  }
+  & &__link {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
