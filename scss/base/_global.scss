@@ -70,3 +70,11 @@ ul {
     }
   }
 }
+
+.modal-content {
+  background-color: $background-color;
+  .modal-title,
+  span {
+    color: $primary-color;
+  }
+}

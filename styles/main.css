@@ -72,6 +72,14 @@ ul {
   text-decoration: underline;
 }
 
+.modal-content {
+  background-color: #333e52;
+}
+.modal-content .modal-title,
+.modal-content span {
+  color: #b982ef;
+}
+
 /**************
   POSTS SECTION
 */

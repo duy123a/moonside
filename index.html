@@ -36,7 +36,7 @@
       <li class="col-12 col-md-6 col-lg-4 col-xl-3">
         <div class="post-item mb-4">
           <div class="card">
-            <img data-id="thumbnail" src="images/recipe.jpg" class="card-img-top" alt="recipe" />
+            <img data-id="thumbnail" src="images/recipe.jpg" class="card-img-top" alt="thumbnail" />
 
             <div class="card-body">
               <h5 data-id="title" class="card-title">Card title</h5>
@@ -48,7 +48,7 @@
 
               <p class="card-text">
                 <small class="text-muted">by</small>
-                <small data-id="author" class="text-muted font-weight-bold"> Hau Nguyen </small>
+                <small data-id="author" class="text-muted font-weight-bold"> duy123a </small>
                 <small data-id="timeSpan" class="text-muted"> - 3 mins ago </small>
               </p>
             </div>
@@ -93,6 +93,7 @@
       <section class="posts-section">
         <div class="container">
           <h1 class="with-underline text-center">Latest posts</h1>
+
           <!-- Carousel -->
           <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
             <div class="carousel-indicators">
@@ -171,9 +172,23 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
+
+          <!-- Search box -->
+          <div class="input-group my-3">
+            <span class="input-group-text" id="search">Search</span>
+            <input
+              id="searchInput"
+              type="text"
+              class="form-control"
+              placeholder="Search by post title"
+              aria-label="titlename"
+              aria-describedby="search"
+            />
+          </div>
+
           <!-- Post list -->
           <ul id="postList" class="row posts-list justify-content-center ps-0">
-            <li class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <!-- <li class="col-12 col-md-6 col-lg-4 col-xl-3">
               <div class="post-item mb-4">
                 <div class="card">
                   <img
@@ -208,8 +223,53 @@
                   </div>
                 </div>
               </div>
-            </li>
+            </li> -->
           </ul>
+
+          <!-- Posts pagination -->
+          <nav class="posts-nav" aria-label="Posts navigation">
+            <ul id="pagination" class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo; Prev</span>
+                </a>
+              </li>
+              <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">Next &raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Modal -->
+          <div id="delete-modal" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Delete post</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary" data-id="confirm">Yes</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
