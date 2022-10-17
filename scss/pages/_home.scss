@@ -1,9 +1,20 @@
 /**************
+  CAROUSEL
+*/
+
+.carousel-item {
+  .carousel-ratio {
+    @include size(1378px, 400px);
+    background-color: $background-color;
+  }
+}
+
+/**************
   POSTS SECTION
 */
 
 .posts-section {
-  padding: 3rem 0;
+  padding: 3rem 0 0 0;
   .post-item {
     /* Zoom card image when hover on card */
     overflow: hidden;

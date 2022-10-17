@@ -21,7 +21,7 @@ a {
   &:hover {
     color: $primary-color;
     opacity: 0.8;
-    & > i {
+    & > i.can-rotate {
       @include transform(rotate(90deg));
     }
   }
@@ -75,6 +75,12 @@ ul {
   background-color: $background-color;
   .modal-title,
   span {
+    color: $primary-color;
+  }
+}
+
+footer {
+  i {
     color: $primary-color;
   }
 }

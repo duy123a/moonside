@@ -24,7 +24,7 @@ a:hover {
   color: #b982ef;
   opacity: 0.8;
 }
-a:hover > i {
+a:hover > i.can-rotate {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
@@ -80,11 +80,24 @@ ul {
   color: #b982ef;
 }
 
+footer i {
+  color: #b982ef;
+}
+
+/**************
+  CAROUSEL
+*/
+.carousel-item .carousel-ratio {
+  width: 1378px;
+  height: 400px;
+  background-color: #333e52;
+}
+
 /**************
   POSTS SECTION
 */
 .posts-section {
-  padding: 3rem 0;
+  padding: 3rem 0 0 0;
 }
 .posts-section .post-item {
   /* Zoom card image when hover on card */
@@ -181,6 +194,33 @@ ul {
 }
 .posts-nav .page-item:not(.active) .page-link:hover {
   color: #b982ef;
+}
+
+section.hero {
+  height: 300px;
+  background: #333e52;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.post-detail .post-detail-main {
+  margin-top: -4rem;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  background-color: #333e52;
+}
+.post-detail .post-title-wrapper {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #8d31b0;
+}
+.post-detail .post-image {
+  width: 100%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+.post-detail .post-image:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */
