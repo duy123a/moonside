@@ -9,6 +9,7 @@ export const POST_ELEMENT = {
   PAGINATION_ID: 'pagination',
   TEMPLATE_ID: 'postItemTemplate',
   SEARCH_ID: 'searchInput',
+  MODAL_ID: 'deletePostModal',
 };
 
 export const LIMIT_NUM = {

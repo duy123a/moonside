@@ -50,12 +50,26 @@ function setDefaultParams() {
   return isChange;
 }
 
+async function deletePost(event) {
+  try {
+    const post = event.currentTarget.post;
+    const deleteModal = event.currentTarget.deleteModal;
+    await postApi.remove(post.id);
+    await handleFilterChange();
+    toast.success('Remove post successfully <3');
+    deleteModal.hide();
+  } catch (error) {
+    console.log('failed to remove post', error);
+    toast.error('Failed to remove post, please refresh the page!');
+  }
+}
+
 function registerPostDeleteEvent() {
   document.addEventListener('post-delete', (event) => {
     const post = event.detail;
     const message = `Are you sure to remove post <span>${post.title}</span>?`;
     // create delete modal
-    const modal = document.getElementById('delete-modal');
+    const modal = document.getElementById(POST_ELEMENT.MODAL_ID);
     if (!modal) return;
     const modalBody = modal.querySelector('.modal-body');
     if (modalBody) modalBody.innerHTML = message;
@@ -63,25 +77,15 @@ function registerPostDeleteEvent() {
     // add event to yes button
     const confirmButton = modal.querySelector('[data-id="confirm"]');
     if (confirmButton) {
-      confirmButton.addEventListener('click', async () => {
-        try {
-          if (post.id) {
-            await postApi.remove(post.id);
-            await handleFilterChange();
-            toast.success('Remove post successfully <3');
-            deleteModal.hide();
-          }
-        } catch (error) {
-          console.log('failed to remove post', error);
-          toast.error('Failed to remove post, please refresh the page!');
-        }
-      });
+      confirmButton.post = post;
+      confirmButton.deleteModal = deleteModal;
+      confirmButton.addEventListener('click', deletePost);
     }
-    // TODO: remove event from no/x button
+    // remove event from no/x button
     const closeButtonList = modal.querySelectorAll('[data-bs-dismiss="modal"]');
     closeButtonList.forEach((closeButton) => {
       closeButton.addEventListener('click', () => {
-        post.id = null;
+        confirmButton.removeEventListener('click', deletePost);
       });
     });
     deleteModal.show();

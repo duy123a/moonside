@@ -60,7 +60,6 @@ function createPostElement(post, templateId) {
       removeButton.addEventListener('click', (event) => {
         const customEvent = new CustomEvent('post-delete', {
           bubbles: true,
-          cancelable: true,
           detail: post,
         });
         removeButton.dispatchEvent(customEvent);
