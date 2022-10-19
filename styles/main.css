@@ -80,6 +80,10 @@ ul {
   color: #b982ef;
 }
 
+.custom-shadow {
+  box-shadow: 0 0.125rem 0.25rem #8d31b0;
+}
+
 footer i {
   color: #b982ef;
 }
@@ -179,10 +183,6 @@ footer i {
 /**************
   POSTS NAV
 */
-.top-nav {
-  box-shadow: 0 0.125rem 0.25rem #8d31b0;
-}
-
 /* Use primary color for page link */
 .posts-nav .page-item .page-link {
   color: #3d5174;
@@ -221,6 +221,11 @@ section.hero {
 }
 .post-detail .post-image:hover {
   cursor: pointer;
+}
+
+.form-check-input.is-valid ~ .form-check-label,
+.was-validated .form-check-input:valid ~ .form-check-label {
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */

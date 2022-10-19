@@ -79,6 +79,10 @@ ul {
   }
 }
 
+.custom-shadow {
+  @include box-shadow(0, 0.125rem, 0.25rem, $shadow-color);
+}
+
 footer {
   i {
     color: $primary-color;

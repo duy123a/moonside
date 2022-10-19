@@ -83,10 +83,6 @@
   POSTS NAV
 */
 
-.top-nav {
-  @include box-shadow(0, 0.125rem, 0.25rem, $shadow-color);
-}
-
 /* Use primary color for page link */
 .posts-nav {
   .page-item {

@@ -32,6 +32,14 @@ export function setBackgroundImage(parent, selector, imageUrl) {
   if (element) element.style.backgroundImage = `url("${imageUrl}")`;
 }
 
+export function setFieldError(form, name, error) {
+  const element = form.querySelector(`[name="${name}"]`);
+  if (element) {
+    element.setCustomValidity(error);
+    setTextContent(element.parentElement, '.invalid-feedback', error);
+  }
+}
+
 export function truncateText(text, maxLength) {
   if (!text) return;
   if (text.length <= maxLength) return text;
@@ -42,4 +50,20 @@ export function randomNumber(n) {
   if (n <= 0) return -1;
   const random = Math.random() * n;
   return Math.round(random);
+}
+
+export function showLoadingSubmitButton(form) {
+  const button = form.querySelector('[name="submit"]');
+  if (button) {
+    button.disable = true;
+    button.textContent = 'Saving...';
+  }
+}
+
+export function hideLoadingSubmitButton(form) {
+  const button = form.querySelector('[name="submit"]');
+  if (button) {
+    button.disable = false;
+    button.textContent = 'Save';
+  }
 }
