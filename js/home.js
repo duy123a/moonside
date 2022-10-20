@@ -7,6 +7,7 @@ import {
   toast,
   initPagination,
   initSearch,
+  handleDynamicClick,
 } from './utils';
 
 async function handleFilterChange(filterName, filterValue) {
@@ -24,6 +25,10 @@ async function handleFilterChange(filterName, filterValue) {
     const { data, pagination } = await postApi.getAll(url.searchParams);
     renderPostList(POST_ELEMENT, data);
     renderPagination(POST_ELEMENT.PAGINATION_ID, pagination);
+    handleDynamicClick({
+      elementId: POST_ELEMENT.PAGINATION_ID,
+      onChange: (page) => handleFilterChange(PARAMS.PAGE, page),
+    });
 
     return url;
   } catch (error) {
