@@ -54,7 +54,7 @@ export function renderPagination(elementId, pagination) {
   }
 
   // doesn't need to render if there is only 1 page
-  if (totalPages === 1) lastPageButton.classList.add('d-none');
+  if (totalPages <= 1) lastPageButton.classList.add('d-none');
   else lastPageButton.classList.remove('d-none');
 
   // check if disable/enable prev/next link
