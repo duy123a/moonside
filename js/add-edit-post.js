@@ -53,11 +53,13 @@ async function handleFormSubmit(formValues) {
   if (!editor) return;
   const editorText = editor.querySelector('.ql-editor');
   if (!editorText) return;
-  editorText.addEventListener('focus', (e) => {
-    const divEditor = document.getElementById('div-editor');
-    if (divEditor) {
-      divEditor.focus();
-    }
+  const divEditor = document.getElementById('div-editor');
+  if (!divEditor) return;
+  editorText.addEventListener('focusin', (e) => {
+    divEditor.classList.add('editor-focus');
+  });
+  editorText.addEventListener('focusout', (e) => {
+    divEditor.classList.remove('editor-focus');
   });
 })();
 
