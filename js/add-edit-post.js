@@ -48,6 +48,7 @@ async function handleFormSubmit(formValues) {
 }
 
 (() => {
+  // Add focus event for quill div
   const editor = document.getElementById('editor');
   if (!editor) return;
   const editorText = editor.querySelector('.ql-editor');
