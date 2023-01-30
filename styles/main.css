@@ -236,6 +236,10 @@ section.hero {
   border: none;
 }
 
+.ql-editor {
+  min-height: 150px;
+}
+
 .editor-focus {
   color: #212529;
   background-color: #fff;
