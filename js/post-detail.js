@@ -8,7 +8,17 @@ function renderPostDetail(post) {
   // render title
   setTextContent(document, '#postDetailTitle', post.title);
   // render description
-  setTextContent(document, '#postDetailDescription', post.description);
+  let html = '';
+  if (typeof post?.description === 'string') {
+    html = `<p>${post?.description}</p>`;
+  } else {
+    quill.setContents(post?.description);
+    html = quill.root.innerHTML;
+  }
+  const postDetailDescription = document.getElementById('postDetailDescription');
+  if (postDetailDescription) {
+    postDetailDescription.innerHTML = html;
+  }
   // render author
   setTextContent(document, '#postDetailAuthor', post.author);
   // render updateAt

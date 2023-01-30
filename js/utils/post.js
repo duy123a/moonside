@@ -15,7 +15,15 @@ function createPostElement(post, templateId) {
 
     // update title, description, author
     setTextContent(liElement, '[data-id="title"]', post.title);
-    setTextContent(liElement, '[data-id="description"]', truncateText(post.description, 115));
+    if (typeof post?.description === 'string') {
+      setTextContent(liElement, '[data-id="description"]', truncateText(post?.description, 115));
+    } else {
+      setTextContent(
+        liElement,
+        '[data-id="description"]',
+        truncateText(post?.description[0].insert, 115)
+      );
+    }
     setTextContent(liElement, '[data-id="author"]', post.author);
 
     // update thumbnail

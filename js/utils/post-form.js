@@ -1,13 +1,13 @@
-import {
-  setBackgroundImage,
-  setFieldValue,
-  setFieldError,
-  randomNumber,
-  showLoadingSubmitButton,
-  hideLoadingSubmitButton,
-} from './common';
 import * as yup from 'yup';
 import { IMAGE_SOURCE } from '../constants';
+import {
+  hideLoadingSubmitButton,
+  randomNumber,
+  setBackgroundImage,
+  setFieldError,
+  setFieldValue,
+  showLoadingSubmitButton,
+} from './common';
 
 function getPostSchema() {
   return yup.object().shape({
@@ -49,7 +49,16 @@ function getPostSchema() {
 function setFormValues(form, formValues) {
   setFieldValue(form, '[name=title]', formValues?.title);
   setFieldValue(form, '[name=author]', formValues?.author);
-  setFieldValue(form, '[name=description]', formValues?.description);
+  // setTextContent(form, 'p', formValues?.description);
+  if (typeof formValues?.description === 'string') {
+    quill.setContents([{ insert: formValues?.description }]);
+  } else {
+    quill.setContents(formValues?.description);
+  }
+
+  // setFieldValue(form, '[name=description]', formValues?.description);
+  var delta = quill.getContents();
+  console.log(delta.ops);
   // this is hidden input to get the imageUrl value
   setFieldValue(form, '[name=imageUrl]', formValues?.imageUrl);
 
@@ -69,6 +78,9 @@ function getFormValues(form) {
   for (const [key, value] of data) {
     formValues[key] = value;
   }
+
+  var delta = quill.getContents();
+  formValues.description = delta.ops;
 
   return formValues;
 }
