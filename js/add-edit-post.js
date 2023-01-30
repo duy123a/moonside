@@ -47,6 +47,19 @@ async function handleFormSubmit(formValues) {
   }
 }
 
+(() => {
+  const editor = document.getElementById('editor');
+  if (!editor) return;
+  const editorText = editor.querySelector('.ql-editor');
+  if (!editorText) return;
+  editorText.addEventListener('focus', (e) => {
+    const divEditor = document.getElementById('div-editor');
+    if (divEditor) {
+      divEditor.focus();
+    }
+  });
+})();
+
 (async () => {
   try {
     const searchParams = new URLSearchParams(window.location.search);

@@ -57,8 +57,6 @@ function setFormValues(form, formValues) {
   }
 
   // setFieldValue(form, '[name=description]', formValues?.description);
-  var delta = quill.getContents();
-  console.log(delta.ops);
   // this is hidden input to get the imageUrl value
   setFieldValue(form, '[name=imageUrl]', formValues?.imageUrl);
 

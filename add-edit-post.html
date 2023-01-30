@@ -96,7 +96,10 @@
               <div class="form-group mb-3">
                 <label for="postDescription">Description</label>
                 <!-- <textarea class="form-control" name="description" rows="3" hidden></textarea> -->
-                <div class="form-control" id="editor"></div>
+                <!-- You need tabindex here to let div be focused, -1 mean can only focus by script -->
+                <div tabindex="-1" id="div-editor" class="form-control">
+                  <div id="editor"></div>
+                </div>
               </div>
 
               <div class="mb-3">
