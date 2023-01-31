@@ -199,6 +199,22 @@
     <!-- Initialize Quill editor -->
     <script>
       var quill = new Quill('#editor', {
+        modules: {
+          toolbar: [
+            [{ header: [1, 2, 3, 4, false] }],
+
+            ['bold', 'italic', 'underline', 'strike'],
+            ['link', 'image', 'code-block'],
+
+            [{ script: 'sub' }, { script: 'super' }],
+
+            [{ color: [] }, { background: [] }],
+            [{ align: [] }],
+
+            ['clean'],
+          ],
+        },
+        placeholder: 'Write your description here...',
         theme: 'snow',
       });
     </script>

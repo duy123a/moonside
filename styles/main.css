@@ -223,6 +223,10 @@ section.hero {
   cursor: pointer;
 }
 
+img {
+  width: 100%;
+}
+
 .form-check-input.is-valid ~ .form-check-label,
 .was-validated .form-check-input:valid ~ .form-check-label {
   color: white;
