@@ -97,6 +97,14 @@ function registerPostDeleteEvent() {
   });
 }
 
+(() => {
+  // auto play carousel
+  const myCarousel = document.getElementById('carouselExampleCaptions');
+  if (!myCarousel) return;
+  var carousel = new bootstrap.Carousel(myCarousel);
+  carousel.cycle();
+})();
+
 (async () => {
   try {
     // check params query, if not then set default for it

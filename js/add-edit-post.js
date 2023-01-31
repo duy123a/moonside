@@ -38,9 +38,9 @@ async function handleFormSubmit(formValues) {
     }
     toast.success('Save post successfully!');
     // redirect to detail page
-    // setTimeout(() => {
-    //   window.location.assign(`/post-detail.html?id=${savedPost.id}`);
-    // }, 3000);
+    setTimeout(() => {
+      window.location.assign(`/post-detail.html?id=${savedPost.id}`);
+    }, 3000);
   } catch (error) {
     console.log('failed to save post', error);
     toast.error('Failed to save post, please try again later!');
