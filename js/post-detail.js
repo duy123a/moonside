@@ -11,7 +11,7 @@ function renderPostDetail(post) {
   // render description
   let html = '';
   if (typeof post?.description === 'string') {
-    html = `<p>${post?.description}</p>`;
+    html = DOMPurify.sanitize(`<p>${post?.description}</p>`);
   } else {
     quill.setContents(post?.description);
     html = DOMPurify.sanitize(quill.root.innerHTML);
