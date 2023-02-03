@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import postApi from './api/postApi';
 import { toast, setTextContent, registerLightbox } from './utils';
+import DOMPurify from 'dompurify';
 
 function renderPostDetail(post) {
   if (!post) return;
@@ -13,7 +14,7 @@ function renderPostDetail(post) {
     html = `<p>${post?.description}</p>`;
   } else {
     quill.setContents(post?.description);
-    html = quill.root.innerHTML;
+    html = DOMPurify.sanitize(quill.root.innerHTML);
   }
   const postDetailDescription = document.getElementById('postDetailDescription');
   if (postDetailDescription) {
